@@ -3,7 +3,7 @@
 int main(){
     float base, da, hra, pf, gross, payable;
 
-    printf("Enter the basic salary of your empolyee: ");
+    printf("Enter the basic salary of your employee: ");
     scanf("%f", &base);
 
     da=base* .4;
