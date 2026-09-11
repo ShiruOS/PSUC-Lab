@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-float calculateBMR(float weight, float height, int age, char gender)
-{
+float calculateBMR(float weight, float height, int age, char gender){
     float bmr = (10 * weight) + (6.25 * height) - (5 * age);
 
     if (gender == 'M' || gender == 'm') bmr += 5;
@@ -10,13 +9,11 @@ float calculateBMR(float weight, float height, int age, char gender)
     return bmr;
 }
 
-float calculateCaloriesBurned(int steps, int activeMinutes)
-{
+float calculateCaloriesBurned(int steps, int activeMinutes){
     return (steps * 0.04) + (activeMinutes * 7.5);
 }
 
-void displayEnergySummary(float totalIntake, float totalExpenditure)
-{
+void displayEnergySummary(float totalIntake, float totalExpenditure){
     float netEnergy = totalIntake - totalExpenditure;
 
     printf("=== Energy Summary Report ===\n");
@@ -30,8 +27,7 @@ void displayEnergySummary(float totalIntake, float totalExpenditure)
     else    printf("Status: Maintenance (0.00 kcal)\n");
 }
 
-int main()
-{
+int main(){
     float weight, height, totalIntake, bmr, activeCalories, totalExpenditure;
     int age, steps, activeMinutes;
     char gender;

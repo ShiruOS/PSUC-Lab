@@ -1,6 +1,5 @@
 #include <stdio.h>
-void analyzeShipment(float weights[], int n,float *minW, float *maxW,float *avgW, int *defectiveCount)
-{
+void analyzeShipment(float weights[], int n,float *minW, float *maxW,float *avgW, int *defectiveCount){
     float sum = 0.0;
 
     *minW = weights[0];
@@ -8,30 +7,25 @@ void analyzeShipment(float weights[], int n,float *minW, float *maxW,float *avgW
 
     *defectiveCount = 0;
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         sum += weights[i];
 
-        if (weights[i] < *minW)
-        {
+        if (weights[i] < *minW){
             *minW = weights[i];
         }
 
-        if (weights[i] > *maxW)
-        {
+        if (weights[i] > *maxW){
             *maxW = weights[i];
         }
 
-        if (weights[i] < 48.0 || weights[i] > 52.0)
-        {
+        if (weights[i] < 48.0 || weights[i] > 52.0){
             (*defectiveCount)++;
         }
     }
-*avgW = sum / n;
+    *avgW = sum / n;
 }
 
-void displayQualityReport(float minW, float maxW,float avgW, int defectiveCount,int totalParts)
-{
+void displayQualityReport(float minW, float maxW,float avgW, int defectiveCount,int totalParts){
     float defectRate;
     defectRate = ((float)defectiveCount / totalParts) * 100;
 
@@ -54,8 +48,7 @@ void displayQualityReport(float minW, float maxW,float avgW, int defectiveCount,
     printf("=============================================\n");
 }
 
-int main()
-{
+int main(){
     float minWeight, maxWeight, avgWeight;
     int defectCount, n;
 
@@ -66,16 +59,9 @@ int main()
 
     float weights[n];
 
-    if (n < 1 || n > 50)
-    {
-        printf("Invalid number of components. Please enter a value from 1 to 50.\n");
-        return 1;
-    }
-
     printf("Enter the weights (in kg) for %d parts:\n", n);
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         printf("Part %d: ", i + 1);
         scanf("%f", &weights[i]);
     }
